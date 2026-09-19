@@ -3354,18 +3354,37 @@ canvas#particleCanvas {
 }
 
 /* ── Scene: Resources ── */
+.resources-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 960px;
+  width: 100%;
+}
+.resources-scene > h2 {
+  font-size: 32px;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.45s ease;
+}
+.resources-scene > h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .resources-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  max-width: 750px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 960px;
   width: 100%;
 }
 .resource-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 18px 20px;
+  padding: 14px 16px;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.4s ease;
@@ -3382,15 +3401,400 @@ canvas#particleCanvas {
   background: var(--bg-card-hover);
 }
 .resource-card .res-title {
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.resource-card .res-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+.connect-panel {
+  width: 100%;
+  max-width: 960px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.5s ease;
+}
+.connect-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.connect-qr {
+  flex-shrink: 0;
+  width: 118px;
+  height: 118px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+.connect-qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.connect-info { flex: 1; min-width: 0; }
+.connect-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.connect-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.connect-role {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.connect-role .accent { color: var(--red); font-weight: 600; }
+.connect-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.connect-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.connect-link:hover {
+  border-color: var(--red);
+  background: var(--bg-card-hover);
+}
+.connect-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+.connect-link.linkedin:hover { border-color: #0a66c2; color: #7eb3ff; }
+.connect-link.x:hover { border-color: #fff; }
+.connect-qr-caption {
+  flex-shrink: 0;
+  text-align: center;
+  max-width: 120px;
+}
+.connect-qr-caption span {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.3;
+}
+/* ── Scene: Community ── */
+.community-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 920px;
+  width: 100%;
+}
+.community-wrap h2 {
+  font-size: 34px;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.5s ease;
+}
+.community-wrap h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.community-sub {
+  font-size: 16px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: -12px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.community-sub.visible { opacity: 1; }
+.community-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.45s ease;
+}
+.community-links.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.community-links a {
+  color: #6eb6ff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0 12px;
+}
+.community-links a:hover { color: #9ed0ff; }
+.community-links .sep {
+  color: rgba(255,255,255,0.45);
+  font-size: 14px;
+  user-select: none;
+}
+.community-banners {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.trend-banner {
+  flex: 1;
+  min-width: 280px;
+  max-width: 420px;
+  background: #fff;
+  border: 1.5px solid #7c3aed;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.trend-banner.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.trend-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trend-icon svg { width: 52px; height: 52px; }
+.trend-meta { display: flex; flex-direction: column; gap: 2px; }
+.trend-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.trend-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #6d28d9;
+  line-height: 1.25;
+}
+.community-orgs {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+.community-orgs.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.community-orgs .org-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+.org-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.org-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: all 0.4s ease;
+}
+.org-chip.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.org-chip.amd { border-color: rgba(237,28,36,0.45); }
+.org-chip.redhat { border-color: rgba(238,0,0,0.55); color: #ff6b6b; }
+.org-chip.google { border-color: rgba(66,133,244,0.5); }
+.org-chip.meta { border-color: rgba(24,119,242,0.5); }
+.org-chip.labs { border-color: rgba(155,89,182,0.55); color: #c39bd3; }
+.org-chip.more { border-color: rgba(92,184,92,0.45); color: var(--green); }
+.community-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.community-badges.visible { opacity: 1; }
+.status-badge {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Red Hat Mono', monospace;
+  line-height: 1;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+.status-badge .sb-left {
+  background: #3a3a3a;
+  color: #e8e4df;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-badge .sb-right {
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+}
+.status-badge .sb-pass { background: #2ea44f; color: #fff; }
+.status-badge .sb-release { background: #e67e22; color: #fff; }
+.status-badge .sb-go { background: #00add8; color: #fff; }
+.status-badge .sb-wiki { background: #0366d6; color: #fff; }
+.community-footnote {
+  font-size: 15px;
+  color: var(--text-dim);
+  text-align: center;
+  max-width: 640px;
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.community-footnote.visible { opacity: 1; }
+.community-footnote em { color: var(--text); font-style: normal; font-weight: 600; }
+.amd-prod-card {
+  width: 100%;
+  max-width: 860px;
+  background: var(--bg-card);
+  border: 1px solid rgba(237,28,36,0.45);
+  border-radius: 14px;
+  padding: 12px 16px 12px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.5s ease;
+  text-decoration: none;
+  color: var(--text);
+}
+.amd-prod-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.amd-prod-card:hover {
+  border-color: #ed1c24;
+  background: var(--bg-card-hover);
+}
+.amd-prod-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 168px;
+  height: 94px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.amd-prod-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.amd-prod-thumb .play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  transition: background 0.25s ease;
+}
+.amd-prod-card:hover .amd-prod-thumb .play-btn {
+  background: rgba(0,0,0,0.2);
+}
+.amd-prod-thumb .play-btn svg {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+.amd-prod-badge {
+  display: inline-block;
+  background: rgba(237,28,36,0.15);
+  color: #ff6b6b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(237,28,36,0.4);
+  margin-bottom: 6px;
+}
+.amd-prod-body { flex: 1; min-width: 0; }
+.amd-prod-body .amd-title {
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 4px;
 }
-.resource-card .res-desc {
-  font-size: 15px;
+.amd-prod-body .amd-desc {
+  font-size: 13px;
   color: var(--text-dim);
-  line-height: 1.5;
+  line-height: 1.4;
 }
+.amd-prod-link {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+  font-family: 'Red Hat Mono', monospace;
+  white-space: nowrap;
+}
+
 .resource-card .res-link {
   font-size: 14px;
   color: var(--red);
@@ -4956,42 +5360,174 @@ canvas#particleCanvas {
 </div>
 
 <!-- ════════════════════════════════════════════════════════ -->
-<!-- SCENE 9: Resources -->
+<!-- SCENE: Community & Adoption -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="scene" id="scene-community">
+  <div class="community-wrap">
+    <h2 id="comm-title">vLLM Semantic Router</h2>
+    <p class="community-sub" id="comm-sub">Open-source Mixture-of-Models control plane — built in the open, adopted in production.</p>
+
+    <nav class="community-links" id="comm-links" aria-label="Project links">
+      <a href="https://vllm-semantic-router.ai/" target="_blank" rel="noopener">Documentation</a>
+      <span class="sep">|</span>
+      <a href="https://vllm-semantic-router.ai/" target="_blank" rel="noopener">Playground</a>
+      <span class="sep">|</span>
+      <a href="https://vllm.ai/blog" target="_blank" rel="noopener">Blog</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/vllm-project/semantic-router" target="_blank" rel="noopener">Publications</a>
+      <span class="sep">|</span>
+      <a href="https://huggingface.co/vllm-project" target="_blank" rel="noopener">Hugging Face</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/vllm-project/semantic-router" target="_blank" rel="noopener">Slack</a>
+    </nav>
+
+    <div class="community-banners">
+      <div class="trend-banner" id="comm-banner-stars">
+        <div class="trend-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 8l4.2 12.8H50l-10.5 7.6 4 12.6L32 33.4 20.5 41l4-12.6L14 20.8h13.8L32 8z" fill="#7c3aed"/>
+            <circle cx="32" cy="36" r="18" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
+            <text x="32" y="42" text-anchor="middle" font-size="14" font-weight="800" fill="#7c3aed" font-family="system-ui,sans-serif">★</text>
+          </svg>
+        </div>
+        <div class="trend-meta">
+          <div class="trend-label">GitHub Community</div>
+          <div class="trend-title">~6k Stars &amp; Growing</div>
+        </div>
+      </div>
+      <div class="trend-banner" id="comm-banner-trend">
+        <div class="trend-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="22" fill="#f5c542"/>
+            <path d="M32 14l4.5 9.2 10.2 1.5-7.4 7.2 1.7 10.1L32 37.2l-9 4.8 1.7-10.1-7.4-7.2 10.2-1.5L32 14z" fill="#fff"/>
+            <text x="32" y="50" text-anchor="middle" font-size="10" font-weight="800" fill="#6d28d9" font-family="system-ui,sans-serif">#1</text>
+          </svg>
+        </div>
+        <div class="trend-meta">
+          <div class="trend-label">GitHub Trending · Go</div>
+          <div class="trend-title">#1 Repository Of The Day</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-orgs" id="comm-orgs">
+      <div class="org-heading">Maintainers &amp; Committers</div>
+      <div class="org-chip-row">
+        <span class="org-chip amd" id="org-amd">AMD</span>
+        <span class="org-chip redhat" id="org-rh">Red Hat</span>
+        <span class="org-chip google" id="org-google">Google</span>
+        <span class="org-chip meta" id="org-meta">Meta</span>
+        <span class="org-chip labs" id="org-labs">Research Lab Founders</span>
+        <span class="org-chip more" id="org-more">+ many more</span>
+      </div>
+    </div>
+
+    <a class="amd-prod-card" id="comm-amd" href="https://www.youtube.com/watch?v=Xow8Ns645sU" target="_blank" rel="noopener">
+      <div class="amd-prod-thumb" aria-hidden="true">
+        <img src="assets/amd-vsr-thumbnail.jpg" alt="" width="168" height="94" loading="lazy">
+        <div class="play-btn">
+          <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.5 7.7c-.8-2.9-3.1-5.2-6-6C55.1.3 34 .3 34 .3S12.9.3 7.5 1.7c-2.9.8-5.2 3.1-6 6C0 13.1 0 24 0 24s0 10.9 1.5 16.3c.8 2.9 3.1 5.2 6 6C12.9 47.7 34 47.7 34 47.7s21.1 0 26.5-1.4c2.9-.8 5.2-3.1 6-6C68 34.9 68 24 68 24s0-10.9-1.5-16.3z" fill="#f00"/>
+            <path d="M45 24L27 14v20" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+      <div class="amd-prod-body">
+        <div class="amd-prod-badge">AMD · Production</div>
+        <div class="amd-title">How AMD uses vLLM-SR in production</div>
+        <div class="amd-desc">Enterprise AI runtime on AMD: semantic routing as the control plane for multi-model workloads — siloed apps → unified, policy-aware Mixture-of-Models.</div>
+      </div>
+      <div class="amd-prod-link">Watch →</div>
+    </a>
+
+    <div class="community-badges" id="comm-badges">
+      <div class="status-badge">
+        <span class="sb-left">Main</span>
+        <span class="sb-right sb-pass">passing</span>
+      </div>
+      <div class="status-badge">
+        <span class="sb-left">release</span>
+        <span class="sb-right sb-release">v0.3.0</span>
+      </div>
+      <div class="status-badge">
+        <span class="sb-left">Go</span>
+        <span class="sb-right sb-go">1.25</span>
+      </div>
+      <a class="status-badge" href="https://github.com/vllm-project/semantic-router" target="_blank" rel="noopener" style="text-decoration:none;">
+        <span class="sb-left">GitHub</span>
+        <span class="sb-right sb-wiki">vllm-project/semantic-router</span>
+      </a>
+    </div>
+
+    <p class="community-footnote" id="comm-note">A cross-industry community: <em>hardware, cloud, research, and enterprise</em> co-building the open Mixture-of-Models stack.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SCENE: Resources & Connect -->
 <!-- ════════════════════════════════════════════════════════ -->
 <div class="scene" id="scene-resources">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
-    <h2 style="font-size:34px;font-weight:800;">Resources &amp; Links</h2>
+  <div class="resources-scene">
+    <h2 id="res-title">Resources &amp; Connect</h2>
     <div class="resources-grid">
       <a class="resource-card" id="res-1" href="https://developers.redhat.com/articles/2026/03/25/getting-started-vllm-semantic-router-athena-release" target="_blank">
         <div class="res-title">Getting Started Guide</div>
-        <div class="res-desc">Full tutorial: install, configure, and deploy vLLM Semantic Router with the Athena release.</div>
+        <div class="res-desc">Install, configure, and deploy vLLM Semantic Router (Athena).</div>
         <span class="res-link">developers.redhat.com</span>
       </a>
       <a class="resource-card" id="res-2" href="https://github.com/vllm-project/semantic-router" target="_blank">
         <div class="res-title">vLLM Semantic Router</div>
-        <div class="res-desc">Open source project. Routing engine, classifiers, signal-decision architecture, Kubernetes CRDs.</div>
+        <div class="res-desc">Open source routing engine, classifiers, and Kubernetes CRDs.</div>
         <span class="res-link">github.com/vllm-project</span>
       </a>
       <a class="resource-card" id="res-3" href="https://github.com/llm-d/llm-d" target="_blank">
         <div class="res-title">LLM-d Inference Stack</div>
-        <div class="res-desc">KV-cache-aware scheduling, prefix-hash routing, tiered offloading for production vLLM deployments.</div>
+        <div class="res-desc">KV-cache-aware scheduling for production vLLM deployments.</div>
         <span class="res-link">github.com/llm-d</span>
       </a>
       <a class="resource-card" id="res-4" href="#" target="_blank">
         <div class="res-title">Fine-Tuning Pipeline</div>
-        <div class="res-desc">Synthetic data generation + contrastive learning for router embeddings. 80% &rarr; 98.5% accuracy.</div>
+        <div class="res-desc">Synthetic data + contrastive learning — 80% → 98.5% accuracy.</div>
         <span class="res-link">Semantic RLAIF Repository</span>
       </a>
       <a class="resource-card" id="res-5" href="https://www.redhat.com/en/products/ai/inference-server" target="_blank">
         <div class="res-title">Red Hat AI Inference Server</div>
-        <div class="res-desc">Enterprise-grade inference serving built on vLLM, with Red Hat support and OpenShift integration.</div>
+        <div class="res-desc">Enterprise inference serving on vLLM with OpenShift support.</div>
         <span class="res-link">redhat.com/ai</span>
       </a>
-      <a class="resource-card" id="res-6" href="#" target="_blank">
-        <div class="res-title">Conference Talk</div>
-        <div class="res-desc">Smarter Routing for Safer AI.vLLM Semantic Router meets the LLM-d inference stack. Lightning talk.</div>
-        <span class="res-link">Christopher Nuland, Red Hat</span>
+      <a class="resource-card" id="res-6" href="https://www.youtube.com/watch?v=Xow8Ns645sU" target="_blank">
+        <div class="res-title">AMD in Production</div>
+        <div class="res-desc">How AMD uses vLLM-SR as an enterprise AI runtime control plane.</div>
+        <span class="res-link">youtube.com/watch?v=Xow8Ns645sU</span>
       </a>
+    </div>
+
+    <div class="connect-panel" id="res-connect">
+      <div class="connect-qr-caption">
+        <div class="connect-qr">
+          <img src="assets/aayush-linkedin-qr.png" alt="QR code to Aayush Saini LinkedIn" width="118" height="118">
+        </div>
+        <span>Scan for LinkedIn</span>
+      </div>
+      <div class="connect-info">
+        <div class="connect-label">Let's connect</div>
+        <div class="connect-name">Aayush Saini</div>
+        <div class="connect-role">
+          Senior Software Engineer, Red Hat ·
+          <span class="accent">vLLM Semantic Router Maintainer</span> ·
+          AsyncAPI Board Member
+        </div>
+        <div class="connect-links">
+          <a class="connect-link linkedin" href="https://www.linkedin.com/in/aayush-sainii/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/aayush-sainii
+          </a>
+          <a class="connect-link x" href="https://x.com/Aayush__Saini_" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+            @Aayush__Saini_
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -5001,17 +5537,17 @@ canvas#particleCanvas {
 const scenes = [
   'scene-intro', 'scene-fragment', 'scene-hook', 'scene-challenge', 'scene-semantic', 'scene-timing', 'scene-location', 'scene-capabilities', 'scene-arch',
   'scene-signals', 'scene-cost', 'scene-finetuning', 'scene-governable', 'scene-collaboration', 'scene-benchmark', 'scene-shift', 'scene-mom-user', 'scene-sovereignty',
-  'scene-guardrails', 'scene-agents', 'scene-llmd', 'scene-e2e', 'scene-summary', 'scene-resources'
+  'scene-guardrails', 'scene-agents', 'scene-llmd', 'scene-e2e', 'scene-summary', 'scene-community', 'scene-resources'
 ];
 const sceneLabels = [
   'Introduction', 'Fragmentation', 'AI Cost Crisis', 'The Challenge', 'Semantic Vision', 'GPT-5 Timing', 'SR Location', 'The Solution', 'Architecture',
   'Signals & Decisions', 'Cost Optimization', 'Fine-Tuning', 'Governable AI', 'Model Collaboration', 'Benchmark Results', 'Industry Shift', 'MoM User View', 'Data Sovereignty',
-  'Enterprise Guardrails', 'Agentic AI', 'LLM-d Integration', 'End-to-End Flow', 'Summary', 'Resources'
+  'Enterprise Guardrails', 'Agentic AI', 'LLM-d Integration', 'End-to-End Flow', 'Summary', 'Community', 'Connect'
 ];
 const sceneDurations = [
   '1.5 min', '2 min', '1 min', '2.5 min', '1.5 min', '1.5 min', '1.5 min', '2 min', '2.5 min', '3 min',
   '2.5 min', '2.5 min', '2.5 min', '2 min', '2 min', '1.5 min', '1.5 min', '1.5 min', '2.5 min',
-  '2 min', '2 min', '2.5 min', '1.5 min', '1 min'
+  '2 min', '2 min', '2.5 min', '1.5 min', '1.5 min', '1 min'
 ];
 const TOTAL_MINUTES = 30;
 const speakerNotes = [
@@ -5182,11 +5718,18 @@ const speakerNotes = [
     '10+ classifiers, 3 defense layers, 0 code changes.',
     'OpenAI-compatible API — drop-in for existing apps and agent frameworks.'
   ]},
-  { title: 'Resources & Q&A', points: [
-    'Getting started: developers.redhat.com semantic router guide.',
-    'GitHub: github.com/vllm-project/semantic-router',
-    'llm-d: llm-d.ai — KV-cache-aware production inference.',
-    'Fine-tuning pipeline: github.com/cnuland/hello-chris-sr-finetuned',
+  { title: 'Community & Production Adoption', points: [
+    '~6k GitHub stars — open community momentum around Mixture-of-Models routing.',
+    'Maintainers and committers from AMD, Red Hat, Google, Meta, research lab founders, and more.',
+    'AMD production path: vLLM-SR as the enterprise AI runtime control plane on AMD GPUs / ROCm.',
+    'Point to talk: youtube.com/watch?v=Xow8Ns645sU — how AMD uses vLLM-SR in production.',
+    'Bridge: this is not a lab prototype — hardware + cloud + research co-building in the open.'
+  ]},
+  { title: 'Resources & Connect', points: [
+    'Point to docs and GitHub for follow-up.',
+    'Invite scan of LinkedIn QR: linkedin.com/in/aayush-sainii',
+    'X/Twitter: @Aayush__Saini_',
+    'AMD talk: youtube.com/watch?v=Xow8Ns645sU',
     'Open floor for questions. Offer live demo if environment available.'
   ]}
 ];
@@ -5427,7 +5970,8 @@ function runSceneAnimation(idx) {
     case 20: animLLMd(); break;
     case 21: animE2E(); break;
     case 22: animSummary(); break;
-    case 23: animResources(); break;
+    case 23: animCommunity(); break;
+    case 24: animResources(); break;
   }
 }
 
@@ -5953,15 +6497,45 @@ function animSummary() {
   });
 }
 
+function animCommunity() {
+  scheduleInScene(() => document.getElementById('comm-title').classList.add('visible'), 150);
+  scheduleInScene(() => document.getElementById('comm-sub').classList.add('visible'), 280);
+  scheduleInScene(() => document.getElementById('comm-links').classList.add('visible'), 420);
+  scheduleInScene(() => document.getElementById('comm-banner-stars').classList.add('visible'), 600);
+  scheduleInScene(() => document.getElementById('comm-banner-trend').classList.add('visible'), 780);
+  scheduleInScene(() => document.getElementById('comm-orgs').classList.add('visible'), 980);
+  ['org-amd','org-rh','org-google','org-meta','org-labs','org-more'].forEach((id, i) => {
+    scheduleInScene(() => document.getElementById(id).classList.add('visible'), 1100 + i * 90);
+  });
+  scheduleInScene(() => document.getElementById('comm-amd').classList.add('visible'), 1700);
+  scheduleInScene(() => document.getElementById('comm-badges').classList.add('visible'), 1950);
+  scheduleInScene(() => document.getElementById('comm-note').classList.add('visible'), 2150);
+}
+
 function animResources() {
+  scheduleInScene(() => document.getElementById('res-title').classList.add('visible'), 120);
   const cards = ['res-1','res-2','res-3','res-4','res-5','res-6'];
   cards.forEach((id, i) => {
-    scheduleInScene(() => document.getElementById(id).classList.add('visible'), 200 + i*200);
+    scheduleInScene(() => document.getElementById(id).classList.add('visible'), 220 + i*140);
   });
+  scheduleInScene(() => document.getElementById('res-connect').classList.add('visible'), 1100);
 }
 
 // ── Initialize ──
-goToScene(0);
+(function initSceneFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const q = (params.get('scene') || location.hash.replace(/^#/, '') || '').toLowerCase();
+  let start = 0;
+  if (q) {
+    const byId = scenes.findIndex(s => s === q || s === 'scene-' + q);
+    const byLabel = sceneLabels.findIndex(l => l.toLowerCase() === q);
+    const byNum = /^\d+$/.test(q) ? Math.max(0, Math.min(scenes.length - 1, parseInt(q, 10))) : -1;
+    if (byId >= 0) start = byId;
+    else if (byLabel >= 0) start = byLabel;
+    else if (byNum >= 0) start = byNum;
+  }
+  goToScene(start);
+})();
 </script>
 </body>
 </html>
